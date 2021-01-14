@@ -149,7 +149,7 @@ def st_app(df_read):
 
 
 def main():
-    df_read = pd.read_csv("D:\Strive\st\goodreads_best2000-main\Best_2000s.csv")
+    df_read = pd.read_csv("D:/Strive/Streamlit-Heruko-App/Best_2000s.csv")
     st_app(df_read)
 
 
