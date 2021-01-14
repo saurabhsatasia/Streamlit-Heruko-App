@@ -9,7 +9,7 @@ from charts import mean_norm_dist,all_three_dist,norm_comparison, awards_boxplot
 from charts import place_title
 from bg import set_png_as_page_bg
 
-def st_app():
+def st_app(df_read):
     set_png_as_page_bg('hog.jpg')
     bgcolor = st.color_picker("Pick a Background color")
     fontcolor = st.color_picker("Pick a Font Color", "#fff")
@@ -29,7 +29,7 @@ def st_app():
     st.sidebar.selectbox("Choose", ['Project', 'About'])
     st.markdown(html_temp_1.format(bgcolor, fontcolor,"Task --> Best books of the decade:2000 "), unsafe_allow_html=True)
     #columns = ['Title', 'Author', 'minirating', 'num_reviews', 'num_pages', 'awards', 'genres', 'series', 'year_published', 'places']
-    df_read = pd.read_csv("D:\Strive\st\goodreads_best2000-main\Best_2000s.csv")
+
     df = preprocessing(df=df_read)
     df=df.drop("Title_URL", axis=1)
     my_bar = st.progress(0)
@@ -148,8 +148,10 @@ def st_app():
 
 
 
+def main():
+    df_read = pd.read_csv("D:\Strive\st\goodreads_best2000-main\Best_2000s.csv")
+    st_app(df_read)
 
 
-
-
-st_app()
+if __name__ == '__main__':
+    main()
